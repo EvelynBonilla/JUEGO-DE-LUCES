@@ -1,0 +1,141 @@
+int D1=13,D2=12,D3=11,D4=10,D5=9,D6=8,D7=7,D8=6,D9=5,D10=4;
+int sw=2;
+int sw1=1;
+int sw2=0;
+int vect[]={D1,D2,D3,D4,D5,D6,D7,D8,D9,D10};
+int contalt;
+int aux=0;
+int aux1=0;
+int aux2=0;
+int aux3=0;
+int vect2[]={D1,D2,D3,D4,D5,D10,D9,D8,D7,D6};
+void setup() {
+  // put your setup code here, to run once:
+pinMode(13,OUTPUT);
+pinMode(12,OUTPUT);
+pinMode(11,OUTPUT);
+pinMode(10,OUTPUT);
+pinMode(9,OUTPUT);
+pinMode(8,OUTPUT);
+pinMode(7,OUTPUT);
+pinMode(6,OUTPUT);
+pinMode(5,OUTPUT);
+pinMode(4,OUTPUT);
+pinMode(2,INPUT);
+pinMode(1,INPUT);
+pinMode(0,INPUT);
+
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+
+if(digitalRead(sw)==LOW && digitalRead(sw1)==LOW && digitalRead(sw2)==LOW){
+            digitalWrite(D1,LOW);
+            digitalWrite(D2,LOW);
+            digitalWrite(D3,LOW);
+            digitalWrite(D4,LOW);
+            digitalWrite(D5,LOW);
+            digitalWrite(D6,LOW);
+            digitalWrite(D7,LOW);
+            digitalWrite(D8,LOW);
+            digitalWrite(D9,LOW);
+            digitalWrite(D10,LOW);
+          }else{
+            if(digitalRead(sw)==LOW && digitalRead(sw1)==HIGH && digitalRead(sw2)==LOW){
+              digitalWrite(D2,HIGH);
+                delay(200);
+                digitalWrite(D2,LOW);
+                delay(200);
+                digitalWrite(D4,HIGH);
+                delay(200);
+                digitalWrite(D4,LOW);
+                delay(200);
+                digitalWrite(D6,HIGH);
+                delay(200);
+                digitalWrite(D6,LOW);
+                delay(200);
+                digitalWrite(D8,HIGH);
+                delay(200);
+                digitalWrite(D8,LOW);
+                delay(200);
+                digitalWrite(D10,HIGH);
+                delay(200);
+                digitalWrite(D10,LOW);
+                delay(200);
+              }else{
+                if(digitalRead(sw)==LOW && digitalRead(sw1)==HIGH && digitalRead(sw2)==HIGH){
+                  
+                  digitalWrite(D1,HIGH);
+                  delay(200);
+                  digitalWrite(D1,LOW);
+                  delay(200);
+                  digitalWrite(D3,HIGH);
+                  delay(200);
+                  digitalWrite(D3,LOW);
+                  delay(200);
+                  digitalWrite(D5,HIGH);
+                  delay(200);
+                  digitalWrite(D5,LOW);
+                  delay(200);
+                  digitalWrite(D7,HIGH);
+                  delay(200);
+                  digitalWrite(D7,LOW);
+                  delay(200);
+                  digitalWrite(D9,HIGH);
+                  delay(200);
+                  digitalWrite(D9,LOW);
+                  delay(200);
+                 
+                  }else{
+                    if(digitalRead(sw)==HIGH && digitalRead(sw1)==LOW && digitalRead(sw2)==HIGH){
+                      contalt=random(1,10);
+                      digitalWrite(vect[contalt],HIGH);
+                      delay(200);
+                      digitalWrite(vect[contalt],LOW);
+                      delay(200);
+                      }else{
+                        if(digitalRead(sw)==HIGH && digitalRead(sw1)==HIGH && digitalRead(sw2)==LOW){
+                          for(;aux<5;aux++){
+                        digitalWrite(vect[aux],HIGH);
+                        digitalWrite(vect[9-aux],HIGH);
+                        delay(200);
+                        digitalWrite(vect[aux],LOW);
+                        digitalWrite(vect[9-aux],LOW);
+                        delay(200);
+                        
+                        }
+                        aux=0;
+                          }else{
+                            if(digitalRead(sw)==HIGH && digitalRead(sw1)==HIGH && digitalRead(sw2)==HIGH){
+                              for(;aux2<5;aux2++){ 
+                                for(;aux3<10;aux3++){
+                             digitalWrite(vect2[aux3],HIGH);
+                             delay(200);
+                             digitalWrite(vect2[aux3],LOW);
+                             delay(200);
+                              }
+                              aux3=0;
+                              }
+                              }
+                              else {
+                                
+                                digitalWrite(D1,LOW);
+                                digitalWrite(D2,LOW);
+                                digitalWrite(D3,LOW);
+                                digitalWrite(D4,LOW);
+                                digitalWrite(D5,LOW);
+                                digitalWrite(D6,LOW);
+                                digitalWrite(D7,LOW);
+                                digitalWrite(D8,LOW);
+                                digitalWrite(D9,LOW);
+                                digitalWrite(D10,LOW);
+                                
+                                }
+                            }
+                        }
+                    }
+                }
+          }
+
+}
